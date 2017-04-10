@@ -15,12 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from stapp.views import hello, stapp_home_view
+from stapp.views import hello, stapp_home_view, search_form, search, search_results
 
 admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^hello/$', hello),
-    url(r'^$', stapp_home_view)
+    url(r'^$', stapp_home_view),
+    url(r'^search-form/$', search_form),
+    url(r'^search/$', search),
+    url(r'^search-results/$', search_results)
 ]
